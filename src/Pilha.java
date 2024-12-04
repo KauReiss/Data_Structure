@@ -5,7 +5,7 @@ public class Pilha implements PilhaInterface{
 
 
     public Pilha(int tamanho){
-        int ponteiroTopo = -1;
+        ponteiroTopo = -1;
         elementos = new Object[tamanho];
     }
 
@@ -33,7 +33,7 @@ public class Pilha implements PilhaInterface{
         if (!estaVazia()){
             elementoTopo = elementos[ponteiroTopo];
         } else {
-            System.out.println("Erro ao mostrar o dado do topo \n A Pilha está vazia!");
+            System.out.println("\n Erro ao mostrar o dado do topo \n A Pilha está vazia!");
         }
         return elementoTopo;
     }
@@ -43,17 +43,17 @@ public class Pilha implements PilhaInterface{
         if (!estaVazia()){
             ponteiroTopo --;
         } else {
-            System.out.println("Erro ao desempilhar. \n A Pilha está vazia!");
+            System.out.println("\n Erro ao desempilhar. \n A Pilha está vazia! \n");
         }
     }
 
     @Override
     public void imprimir() {
-        System.out.print(" Pilha [ ");
+        System.out.print("\n Pilha [ ");
         for ( int i = 0 ; i <= ponteiroTopo; i++){
-            System.out.println(elementos[i]);
+            System.out.print(elementos[i] + " ");
         }
-        System.out.print(" ]");
+        System.out.println("]\n");
     }
 
     @Override
