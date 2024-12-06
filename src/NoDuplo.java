@@ -4,7 +4,7 @@ public class NoDuplo {
     private NoDuplo proximo;
     private Object elemento;
     
-    
+    // Getters e Setters
     public Object getElemento() {
         return elemento;
     }

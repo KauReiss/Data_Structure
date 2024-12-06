@@ -6,5 +6,5 @@ public interface PilhaInterface {
     public abstract Object topo();
     public abstract void remover();
     public abstract void imprimir();
-    public abstract int qualTamanho();
+    public abstract String qualTamanho();
 }
