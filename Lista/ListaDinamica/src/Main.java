@@ -8,7 +8,7 @@ public class Main {
         while (opcao != 0){
             System.out.println("---------Escolha uma opção---------");
             System.out.println(" > 1- Inserir na lista.");
-            System.out.println(" > 2- Remover da fila.");
+            System.out.println(" > 2- Remover da lista.");
             System.out.println(" > 3- Atualizar a lista.");
             System.out.println(" > 4- Qual o tamanho da lista.");
             System.out.println(" > 5- Imprimir lista.");
