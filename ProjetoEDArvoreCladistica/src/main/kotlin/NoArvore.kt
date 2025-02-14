@@ -11,7 +11,6 @@ class NoArvore<T>(val dado: T, val ancestral: T) {
         if (descendente.isEmpty()) {
             return
         }
-        var descendentes = "";
         for (filho in descendente) {
             print(" '${filho.dado}'")
         }
