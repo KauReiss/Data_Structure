@@ -6,7 +6,7 @@ fun main() {
     print("Digite a espécie raiz: ")
     val especieRaiz = scanner.nextLine()
 
-    val tree = ArvoreCladistica(NoArvore(especieRaiz, ""))
+    var tree = ArvoreCladistica(NoArvore(especieRaiz, ""))
 
     while (true) {
         println("\n📜 MENU:")
@@ -46,8 +46,13 @@ fun main() {
                 scanner.nextLine() // Limpar buffer
                 print("❌ Remover espécie: ")
                 val remover = scanner.nextLine()
-                tree.removerEspecies(remover)
-                println("✅ Espécie '$remover' e seus descendentes foram removidos.")
+                if (tree.removerEspecies(remover)) {
+                    print("Qual espécie será a nova raiz: ")
+                    val novaRaiz = scanner.nextLine()
+                    tree = ArvoreCladistica(NoArvore(novaRaiz, ""))
+                } else {
+                    println("✅ Espécie '$remover' e seus descendentes foram removidos.")
+                }
             }
             5 -> {
                 scanner.nextLine() // Limpar buffer

@@ -27,13 +27,16 @@ class ArvoreCladistica<T> (var raiz: NoArvore<T>) {
         }
     }
 
-    fun removerEspecies(especie: T) {
+    fun removerEspecies(especie: T) :Boolean {
         if (raiz?.dado == especie){
-            //raiz = null
+            for (filho in raiz.descendente) {
+                raiz.removeDescendente(filho)
+            }
             println("🌿 Raiz da árvore removida. Todas as espécies foram apagadas.")
-            return
+            return true
         }
         removerNo(raiz, especie)
+        return false
     }
 
     fun removerNo(no: NoArvore<T>?, especie: T) {
