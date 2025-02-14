@@ -20,8 +20,8 @@ class ArvoreCladistica<T> (var raiz: NoArvore<T>) {
     fun inserirEspecie(ancestral: T, novaEspecie: T) {
         val noPai = buscarEspecie(raiz, ancestral)
         if (noPai != null) {
-            noPai.addDescendente(NoArvore(novaEspecie))
-            println(" Espécie ' $novaEspecie ' adicionada sob '$ancestral'.")
+            noPai.addDescendente(NoArvore(novaEspecie, ancestral))
+            println(" Espécie '$novaEspecie' adicionada sob '$ancestral'.")
         } else {
             println(" Espécie ancestral ' $ancestral' não foi encontrada!")
         }

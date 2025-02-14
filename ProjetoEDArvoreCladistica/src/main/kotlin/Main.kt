@@ -6,7 +6,7 @@ fun main() {
     print("Digite a espécie raiz: ")
     val especieRaiz = scanner.nextLine()
 
-    val tree = ArvoreCladistica(NoArvore(especieRaiz))
+    val tree = ArvoreCladistica(NoArvore(especieRaiz, ""))
 
     while (true) {
         println("\n📜 MENU:")
@@ -14,6 +14,7 @@ fun main() {
         println("2️⃣ Visualizar Árvore")
         println("3️⃣ Buscar Espécie")
         println("4️⃣ Remover Espécie")
+        println("5 - Detalhes de Espécie")
         println("5️⃣ Sair")
         print("👉 Escolha uma opção: ")
 
@@ -49,6 +50,29 @@ fun main() {
                 println("✅ Espécie '$remover' e seus descendentes foram removidos.")
             }
             5 -> {
+                scanner.nextLine() // Limpar buffer
+                print("🔍 Detalhes da espécie: ")
+                val search = scanner.nextLine()
+                val found = tree.buscarEspecie(tree.raiz, search)
+                if (found != null) {
+                    if (found.ancestral != "") {
+                        if (found.temDescendentes()){
+                            val ancestral = found.ancestral
+                            print("✅ Espécie '$search' tem como ancestral '$ancestral' e descendentes")
+                            found.imprimirDescendentes()
+                        } else {
+                            val ancestral = found.ancestral
+                            print("✅ Espécie '$search' tem como ancestral '$ancestral' e não tem descendentes")
+                        }
+                    } else {
+                        print("✅ A Espécie '$search' é a raiz da árvore")
+                    }
+                } else {
+                    println("❌ Espécie '$search' não encontrada.")
+                }
+            }
+
+            6 -> {
                 println("🚪 Saindo...")
                 break
             }
