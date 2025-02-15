@@ -3,7 +3,7 @@ import java.util.Scanner
 fun main() {
     val scanner = Scanner(System.`in`)
     println("🌿 Bem-vindo à Árvore Cladística!")
-    print("Digite a espécie raiz: ")
+    print("🐾 Digite a espécie raiz: ")
     val especieRaiz = scanner.nextLine()
 
     var tree = ArvoreCladistica(NoArvore(especieRaiz, ""))
@@ -14,10 +14,10 @@ fun main() {
         println("2️⃣ Visualizar Árvore")
         println("3️⃣ Buscar Espécie")
         println("4️⃣ Remover Espécie")
-        println("5 - Detalhes de Espécie")
-        println("5️⃣ Sair")
-        print("👉 Escolha uma opção: ")
+        println("5️⃣ Detalhes de Espécie")
+        println("6️⃣ Sair")
 
+        print("👉 Escolha uma opção: ")
         when (scanner.nextInt()) {
             1 -> {
                 scanner.nextLine() // Limpar buffer
@@ -52,16 +52,14 @@ fun main() {
                 print("❌ Remover espécie: ")
                 val remover = scanner.nextLine()
                 if (tree.removerEspecies(remover)) {
-                    print("Qual espécie será a nova raiz: ")
+                    print("🐾 Qual espécie será a nova raiz: ")
                     val novaRaiz = scanner.nextLine()
                     tree = ArvoreCladistica(NoArvore(novaRaiz, ""))
-                } else {
-                    println("✅ Espécie '$remover' e seus descendentes foram removidos.")
                 }
             }
             5 -> {
                 scanner.nextLine() // Limpar buffer
-                print("🔍 Detalhes da espécie: ")
+                print("🐾 Detalhes da espécie: ")
                 val search = scanner.nextLine()
                 val found = tree.buscarEspecie(tree.raiz, search)
                 if (found != null) {

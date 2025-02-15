@@ -29,12 +29,10 @@ class ArvoreCladistica<T> (var raiz: NoArvore<T>) {
 
     fun removerEspecies(especie: T): Boolean {
         if (raiz?.dado == especie) {
-            // Criar uma cópia da lista para evitar modificação durante a iteração
-            val filhosParaRemover = raiz.descendente.toList()
+            val filhosParaRemover = raiz.descendente.toList() // Cria uma cópia da lista para evitar modificação durante a iteração
             for (filho in filhosParaRemover) {
-                raiz.removeDescendente(filho)  // Remove sem erro
+                raiz.removeDescendente(filho)
             }
-
             println("🌿 Raiz da árvore removida. Todas as espécies foram apagadas.")
             return true
         }
@@ -44,8 +42,14 @@ class ArvoreCladistica<T> (var raiz: NoArvore<T>) {
     }
 
     fun removerNo(no: NoArvore<T>?, especie: T) {
-        no?.descendente?.removeIf {it.dado == especie}
-        no?.descendente?.forEach {removerNo(it, especie)}
+        if (buscarEspecie(no, especie) == null) {
+            println("❌ Espécie '$especie' não encontrada.")
+        } else {
+            no?.descendente?.removeIf {it.dado == especie}
+            no?.descendente?.forEach {removerNo(it, especie)}
+            println("✅ Espécie '$especie' e seus descendentes foram removidos.")
+        }
+
     }
 
     fun imprimirArvore(no: NoArvore<T>, depth: Int = 0) {
