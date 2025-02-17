@@ -6,7 +6,7 @@ fun main() {
     print("🐾 Digite a espécie raiz: ")
     val especieRaiz = scanner.nextLine()
 
-    var tree = ArvoreCladistica(NoArvore(especieRaiz, ""))
+    var tree = ArvoreCladistica(NoArvore(especieRaiz, ""))  // Criação da árvore
 
     while (true) {
         println("\n📜 MENU:")
@@ -24,7 +24,7 @@ fun main() {
                 scanner.nextLine() // Limpar buffer
                 print("🔹 Espécie ancestral: ")
                 val pai = scanner.nextLine()
-                if (tree.buscarEspecie(tree.raiz, pai) == null) {
+                if (tree.buscarEspecie(tree.raiz, pai) == null) {    // Verifica se a espécie existe na árvore
                     println("❌ O Ancestral '$pai' não foi encontrado.")
                 } else {
                     print("🔹 Nova espécie: ")
@@ -42,7 +42,7 @@ fun main() {
                 print("🔍 Buscar espécie: ")
                 val search = scanner.nextLine()
                 val found = tree.buscarEspecie(tree.raiz, search)
-                if (found != null) {
+                if (found != null) {  // Verifica se a busca encontrou a espécie informada
                     println("✅ A Espécie '$search' foi encontrada!")
                 } else {
                     println("❌ A Espécie '$search' não foi encontrada.")
@@ -53,8 +53,8 @@ fun main() {
                 print("🐾 Detalhes da espécie: ")
                 val search = scanner.nextLine()
                 val found = tree.buscarEspecie(tree.raiz, search)
-                if (found != null) {
-                    if (found.ancestral != "") {
+                if (found != null) {  // Verifica se a busca encontrou a espécie informada
+                    if (found.ancestral != "") {  // Verifica se não é a espécie raiz
                         if (found.temDescendentes()){
                             val ancestral = found.ancestral
                             print("✅ A Espécie '$search' tem como ancestral '$ancestral' e descendentes.")
@@ -74,10 +74,10 @@ fun main() {
                 scanner.nextLine() // Limpar buffer
                 print("❌ Remover espécie: ")
                 val remover = scanner.nextLine()
-                if (tree.removerEspecies(remover)) {
+                if (tree.removerEspecies(remover)) {  // Se a função retornar true é porque a espécie que será removida é a raiz
                     print("🐾 Qual espécie será a nova raiz: ")
                     val novaRaiz = scanner.nextLine()
-                    tree = ArvoreCladistica(NoArvore(novaRaiz, ""))
+                    tree = ArvoreCladistica(NoArvore(novaRaiz, ""))  // Criação de uma nova árvore com a nova espécie raiz
                 }
             }
 
@@ -85,7 +85,7 @@ fun main() {
                 scanner.nextLine() // Limpar buffer
                 print("🐾 Filogenética de qual espécie: ")
                 val especie = scanner.nextLine()
-                tree.imprimirFilogenetica(tree.raiz, especie)
+                tree.imprimirFilogenetica(tree.raiz, especie)  // Imprime a espécie e seus descendentes
             }
 
             7 -> {

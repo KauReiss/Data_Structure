@@ -1,5 +1,6 @@
 class NoArvore<T>(val dado: T, val ancestral: T) {
-    val descendente = mutableListOf<NoArvore<T>>()
+
+    val descendente = mutableListOf<NoArvore<T>>()  // Lista de descendentes do nó(espécie)
 
     fun addDescendente(filho: NoArvore<T>) {
         descendente.add(filho)
